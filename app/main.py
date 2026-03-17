@@ -26,7 +26,7 @@ def main():
                 print(f"{args[0]} is a shell builtin")
             else:
                 program_name = args[0]
-                for path in os.environ["PATH"].split(":"):
+                for path in os.environ["PATH"].split(os.pathsep):
                     full_path = os.path.join(path, program_name)
                     if os.path.isfile(full_path):
                         if os.access(full_path, os.X_OK):
