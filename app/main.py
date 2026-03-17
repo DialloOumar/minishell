@@ -5,16 +5,21 @@ def main():
 
     while True:
         sys.stdout.write("$ ")
+
+        commands = ["exit", "echo", "type"]
         
         # Get use input
-        command = input()
+        user_input = input()
 
+        command = user_input.split(" ")[0]
         # Handle  the exit command
         if "exit" == command:
             return 
-        
         if command.startswith("echo"):
-            print(command[5:])
+            print(user_input[5:])
+
+        elif command == "type" and command in commands:
+            print(f"{command} is a shell builtin")
         else:
             print(f"{command}: not found")
 
