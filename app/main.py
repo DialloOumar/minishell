@@ -6,7 +6,7 @@ def main():
     
     # Get use input
     command = input()
-    print(f"{command} : not found")
+    print(f"{command}: not found")
 
 
 if __name__ == "__main__":
