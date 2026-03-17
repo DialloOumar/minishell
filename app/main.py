@@ -9,10 +9,14 @@ def main():
         # Get use input
         command = input()
 
+        # Handle  the exit command
         if "exit" == command:
             return 
         
-        print(f"{command}: not found")
+        if command.startswith("echo"):
+            print(command[5:])
+        else:
+            print(f"{command}: not found")
 
 
 if __name__ == "__main__":
