@@ -27,8 +27,8 @@ def main():
             else:
                 program_name = args[0]
                 for path in os.environ["PATH"].split(os.pathsep):
-                    full_path = os.path.join(path, program_name)
-                    print(full_path[10:])
+                    full_path = os.path.join(path, program_name)[10]
+                    # print(full_path[10:])
                     if os.path.isfile(full_path):
                         if os.access(full_path, os.X_OK):
                             print(f"{args[0]} is {full_path}")
