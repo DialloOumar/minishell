@@ -22,7 +22,7 @@ def main():
         elif command == "type" and args in commands:
             print(f"{args} is a shell builtin")
         else:
-            print(f"{command}: not found")
+            print(f"{args}: not found")
 
 
 if __name__ == "__main__":
