@@ -26,14 +26,18 @@ def main():
                 print(f"{args[0]} is a shell builtin")
             else:
                 program_name = args[0]
+                is_path_found = False
                 for path in os.environ["PATH"].split(os.pathsep):
-                    full_path = os.path.join(path, program_name)[10]
+                    # print(path)
+                    full_path = os.path.join(path, program_name)
                     # print(full_path[10:])
                     if os.path.isfile(full_path):
+                        is_path_found = True
                         if os.access(full_path, os.X_OK):
                             print(f"{args[0]} is {full_path}")
-                    else:
-                        print(f"{args[0]} not found")
+
+                if not is_path_found:
+                    print(f"{args[0]} not found")
         else:
             print(f"{command}: not found")
 
