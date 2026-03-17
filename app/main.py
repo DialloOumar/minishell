@@ -1,29 +1,28 @@
 import sys
 
 
+# supported commands
+COMMANDS = ["exit", "echo", "type"]
+
 def main():
 
     while True:
         sys.stdout.write("$ ")
-
-        # supported commands
-        commands = ["exit", "echo", "type"]
         
+        line = input()
         # Get use input
-        user_input = input()
+        command, *args = line.split(" ")
 
-        command = user_input.split(" ")[0]
         # Handle  the exit command
         if "exit" == command:
             return 
-        if command.startswith("echo"):
-            print(user_input[5:])
+        if command == "echo":
+            print(line[5:])
         elif command == "type":
-            command_arg = user_input.split(" ")
-            if command_arg[1] in commands:
-                print(f"{command_arg[1]} is a shell builtin")
+            if args[0] in COMMANDS:
+                print(f"{args[0]} is a shell builtin")
             else:
-                print(f"{command_arg[1]} not found")
+                print(f"{args[0]} not found")
         else:
             print(f"{command}: not found")
 
