@@ -20,7 +20,7 @@ def main():
             print(user_input[5:])
         elif command == "type":
             command_arg = user_input.split(" ")
-            if command_arg in commands:
+            if command_arg[1] in commands:
                 print(f"{command_arg[1]} is a shell builtin")
             else:
                 print(f"{command_arg[1]} not found")
