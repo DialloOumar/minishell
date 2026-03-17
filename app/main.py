@@ -1,9 +1,9 @@
 import sys
 import os
 
-path = os.environ["PATH"]
+# path = os.environ["PATH"]
 
-print(os.pathsep)
+# print(os.pathsep)
 # supported commands
 COMMANDS = ["exit", "echo", "type"]
 
