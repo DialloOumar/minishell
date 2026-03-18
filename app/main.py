@@ -35,6 +35,8 @@ def execute_command(command, args):
             print(f"{args[0]} is {full_path}")
         else:
             print(f"{args[0]} not found")
+    elif command == "pwd":
+        print(os.getcwd())
     elif full_path != "":
         # Execute as an external command
         subprocess.run([command]+args)
