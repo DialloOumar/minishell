@@ -3,7 +3,7 @@ import os
 import subprocess
 
 # supported commands
-COMMANDS = ["exit", "echo", "type"]
+COMMANDS = ["exit", "echo", "type", "pwd"]
 
 def main():
 
