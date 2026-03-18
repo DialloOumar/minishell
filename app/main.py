@@ -38,6 +38,8 @@ def execute_command(command, args):
     elif full_path != "":
         # Execute as an external command
         subprocess.run([command]+args)
+    else:
+        print(f"{args[0]} not found")
           
 
 def is_external_command(command_name):
