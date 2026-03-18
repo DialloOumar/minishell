@@ -20,6 +20,9 @@ def main():
 
 
 def execute_command(command, args):
+
+    full_path = is_external_command(command)
+
     if command == "echo":
         result = " ".join(args)
         print(result)
@@ -32,10 +35,7 @@ def execute_command(command, args):
             print(f"{args[0]} is {full_path}")
         else:
             print(f"{args[0]} not found")
-    
-    full_path = is_external_command(command)
-
-    if full_path != "":
+    elif full_path != "":
         # Execute as an external command
         subprocess.run([command]+args)
           
