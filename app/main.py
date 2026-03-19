@@ -3,7 +3,7 @@ import os
 import subprocess
 
 # supported commands
-COMMANDS = ["exit", "echo", "type", "pwd"]
+COMMANDS = ["exit", "echo", "type", "pwd", "cd"]
 
 def main():
 
@@ -36,7 +36,16 @@ def execute_command(command, args):
         else:
             print(f"{args[0]} not found")
     elif command == "pwd":
+        # Get the current directory
         print(os.getcwd())
+    elif command == "cd" and len(args) > 0:
+        # change current directory
+        path = args[0]
+        if os.access(path, os.F_OK):
+            os.chdir(path)
+        else:
+            print(f"cd: {path}: No such file or directory")
+    
     elif full_path != "":
         # Execute as an external command
         subprocess.run([command]+args)
