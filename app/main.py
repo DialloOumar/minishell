@@ -44,7 +44,6 @@ def execute_command(command, args):
         path = args[0]
         if path == "~":
             path = os.path.expanduser("~")
-        print(path)
         if path is not None and os.access(path, os.F_OK):
             os.chdir(path)
         else:
