@@ -39,9 +39,13 @@ def execute_command(command, args):
         # Get the current directory
         print(os.getcwd())
     elif command == "cd" and len(args) > 0:
+        
         # change current directory
         path = args[0]
-        if os.access(path, os.F_OK):
+        if path == "~":
+            path = os.path.expanduser("~")
+        print(path)
+        if path is not None and os.access(path, os.F_OK):
             os.chdir(path)
         else:
             print(f"cd: {path}: No such file or directory")
